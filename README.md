@@ -1,0 +1,1 @@
+github frontend repo: https://github.com/dbmiddle/ghostpost_frontend
