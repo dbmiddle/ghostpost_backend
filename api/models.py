@@ -11,3 +11,8 @@ class BoastsAndRoasts(models.Model):
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
+
+    def votescore(self):
+        self.votescore = self.upvotes - self.downvotes
+        return self.votescore
+    

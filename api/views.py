@@ -15,15 +15,15 @@ class BoastsAndRoastsViewSet(ModelViewSet):
     queryset = BoastsAndRoasts.objects.all()
 
     @action(detail=True, methods=['post'])
-    def upvote(self, request, id=id):
-        upvotecount = BoastsAndRoasts.objects.get(id=id)
+    def upvote(self, request, pk=None):
+        upvotecount = self.get_object()
         upvotecount.upvotes += 1
         upvotecount.save()
         return Response({'upvotecount': upvotecount.upvotes})
 
     @action(detail=True, methods=['post'])
-    def downvote(self, request, id=id):
-        downvotecount = BoastsAndRoasts.objects.get(id=id)
+    def downvote(self, request, pk=None):
+        downvotecount = self.get_object()
         downvotecount.downvotes += 1
         downvotecount.save()
         return Response({'downvotecount': downvotecount.downvotes})

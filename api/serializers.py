@@ -6,7 +6,8 @@ from api.models import BoastsAndRoasts
 class BoastsAndRoastsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = BoastsAndRoasts
-        fields = ('is_boast',
+        fields = ('id',
+                  'is_boast',
                   'content',
                   'votescore',
                   'upvotes',
